@@ -2,15 +2,17 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Alumno {
   private final String legajo;
   private final String nombre;
-  private final List<Materia> materiasRealizadas;
-  private List<Materia> materiasAprobadas;
+  private final Set<Materia> materiasRealizadas;
+  private Set<Materia> materiasAprobadas;
   private List<Inscripcion> inscripcionesRealizadas = new ArrayList<>();
 
-  public Alumno(String legajo, String nombre, List<Materia> materiasRealizadas) {
+  public Alumno(String legajo, String nombre, Set<Materia> materiasRealizadas) {
     this.legajo = legajo;
     this.nombre = nombre;
     this.materiasRealizadas = materiasRealizadas;
@@ -18,10 +20,10 @@ public class Alumno {
   }
 
   private void setMateriasAprobadas() {
-    this.materiasAprobadas = materiasRealizadas.stream().filter(Materia::isAprobada).toList();
+    this.materiasAprobadas = materiasRealizadas.stream().filter(Materia::isAprobada).collect(Collectors.toSet());
   }
 
-  public void inscribirse(List<Materia> materiasAInscribirse) {
+  public void inscribirse(Set<Materia> materiasAInscribirse) {
 
     Inscripcion inscripcion = new Inscripcion(materiasAInscribirse, this);
     inscripcionesRealizadas.add(inscripcion);

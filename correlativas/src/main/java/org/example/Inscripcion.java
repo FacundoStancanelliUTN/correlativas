@@ -1,20 +1,20 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class Inscripcion {
 
   private int numeroInscripcion;
   private static final String ERROR_INSCRIBIENDOSE = "La inscripcion para la materia %s no esta aprobada.";
   private static final String ERROR_EMPTY_MATERIAS_A_INSCRIBIRSE = "No hay materias para inscribirse.";
-  private final List<Materia> materias;
+  private final Set<Materia> materias;
   private static final Random RANDOM = new Random();
 
-  public Inscripcion(List<Materia> materiasAInscribirse, Alumno alumno) {
+  public Inscripcion(Set<Materia> materiasAInscribirse, Alumno alumno) {
     this.numeroInscripcion = RANDOM.nextInt();
-    this.materias = new ArrayList<>();
+    this.materias = new HashSet<>();
     this.agregarMaterias(materiasAInscribirse, alumno);
   }
 
@@ -22,7 +22,7 @@ public class Inscripcion {
     Se pasa el alumno para no generar un escaping reference y enviarle la lista de materias realizadas, debido a que la clase que tiene la lista
     debe encargarse de manejarla
   */
-  public void agregarMaterias(List<Materia> materiasAInscribirse, Alumno alumno) {
+  public void agregarMaterias(Set<Materia> materiasAInscribirse, Alumno alumno) {
 
     validarMateriasAInscribirse(materiasAInscribirse);
 
@@ -35,7 +35,7 @@ public class Inscripcion {
     });
   }
 
-  private void validarMateriasAInscribirse(List<Materia> materiasAInscribirse) {
+  private void validarMateriasAInscribirse(Set<Materia> materiasAInscribirse) {
     if (materiasAInscribirse.isEmpty()) {
       throw new RuntimeException(ERROR_EMPTY_MATERIAS_A_INSCRIBIRSE);
     }

@@ -1,20 +1,21 @@
 package org.example;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Materia {
   private final String nombre;
   private boolean aprobada;
-  private List<Materia> materiasCorrelativas = new ArrayList<>();
+  private Set<Materia> materiasCorrelativas = new HashSet<>();
 
-  public Materia(String nombre, boolean aprobada, List<Materia> materiasCorrelativas) {
+  public Materia(String nombre, boolean aprobada, Set<Materia> materiasCorrelativas) {
     this.nombre = nombre;
     this.aprobada = aprobada;
     this.materiasCorrelativas = materiasCorrelativas;
   }
 
-  public Materia(String nombre, List<Materia> materiasCorrelativas) {
+  public Materia(String nombre, Set<Materia> materiasCorrelativas) {
     this.nombre = nombre;
     this.materiasCorrelativas = materiasCorrelativas;
   }
