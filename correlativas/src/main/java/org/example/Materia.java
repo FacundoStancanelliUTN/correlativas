@@ -43,4 +43,8 @@ public class Materia {
   public boolean isAprobada() {
     return aprobada;
   }
+
+  public void agregarMateriaCorrelativa(Materia materiaCorrelativa) {
+    this.materiasCorrelativas.add(materiaCorrelativa);
+  }
 }

@@ -6,9 +6,9 @@ import java.util.Set;
 
 public class Inscripcion {
 
-  private int numeroInscripcion;
   private static final String ERROR_INSCRIBIENDOSE = "La inscripcion para la materia %s no esta aprobada.";
   private static final String ERROR_EMPTY_MATERIAS_A_INSCRIBIRSE = "No hay materias para inscribirse.";
+  private final int numeroInscripcion;
   private final Set<Materia> materias;
   private static final Random RANDOM = new Random();
 

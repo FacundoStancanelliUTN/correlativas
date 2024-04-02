@@ -1,7 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -10,7 +9,7 @@ public class Alumno {
   private final String nombre;
   private final Set<Materia> materiasRealizadas;
   private Set<Materia> materiasAprobadas;
-  private List<Inscripcion> inscripcionesRealizadas = new ArrayList<>();
+  private final Set<Inscripcion> inscripcionesRealizadas = new HashSet<>();
 
   public Alumno(String legajo, String nombre, Set<Materia> materiasRealizadas) {
     this.legajo = legajo;
@@ -35,5 +34,9 @@ public class Alumno {
 
   public int getCantidadMateriasInscriptas() {
     return this.inscripcionesRealizadas.stream().mapToInt(Inscripcion::getCantidadMateriasInscriptas).sum();
+  }
+
+  public void agregarMateriaRealizada(Materia materiaRealizada) {
+    this.materiasRealizadas.add(materiaRealizada);
   }
 }
