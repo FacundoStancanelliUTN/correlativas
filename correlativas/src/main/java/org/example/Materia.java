@@ -1,8 +1,8 @@
 package org.example;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Materia {
   private final String nombre;
@@ -25,11 +25,11 @@ public class Materia {
   }
 
   /*
-    Se obtiene el nombre de las correlativas para no generar un escaping reference y devolver la lista de materias correlativas, debido
-    a que la clase que tiene la lista debe encargarse de manejarla
+    Se obtiene el nombre de las correlativas para no generar un escaping reference y devolver el set de materias correlativas, debido
+    a que la clase que tiene el set debe encargarse de manejarlo
   */
-  public List<String> getNombreCorrelativas() {
-    return materiasCorrelativas.stream().map(Materia::getNombre).toList();
+  public Set<String> getNombreCorrelativas() {
+    return materiasCorrelativas.stream().map(Materia::getNombre).collect(Collectors.toSet());
   }
 
   public boolean equalsNombre(String nombreAEvaluar) {

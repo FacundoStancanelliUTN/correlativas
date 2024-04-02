@@ -19,8 +19,8 @@ public class Inscripcion {
   }
 
   /*
-    Se pasa el alumno para no generar un escaping reference y enviarle la lista de materias realizadas, debido a que la clase que tiene la lista
-    debe encargarse de manejarla
+    Se pasa el alumno para no generar un escaping reference y enviarle el set de materias realizadas, debido a que la clase que tiene el set
+    debe encargarse de manejarlo
   */
   public void agregarMaterias(Set<Materia> materiasAInscribirse, Alumno alumno) {
 
