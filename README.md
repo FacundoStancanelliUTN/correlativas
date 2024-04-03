@@ -1,2 +1,2 @@
 Diagrama de clases:
-![uml_correlativas](https://github.com/FacundoStancanelliUTN/correlativas/assets/129307586/470dfcdb-71b8-45aa-bbed-4e2d272050c5)
+![uml_correlativas](https://github.com/FacundoStancanelliUTN/correlativas/assets/129307586/1710dcd1-1da5-474f-886b-234eb2af5dce)
