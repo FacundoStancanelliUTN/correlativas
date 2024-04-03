@@ -1,19 +1,15 @@
 package org.example;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 public class Inscripcion {
 
   private static final String ERROR_INSCRIBIENDOSE = "La inscripcion para la materia %s no esta aprobada.";
   private static final String ERROR_EMPTY_MATERIAS_A_INSCRIBIRSE = "No hay materias para inscribirse.";
-  private final int numeroInscripcion;
   private final Set<Materia> materias;
-  private static final Random RANDOM = new Random();
 
   public Inscripcion(Set<Materia> materiasAInscribirse, Alumno alumno) {
-    this.numeroInscripcion = RANDOM.nextInt();
     this.materias = new HashSet<>();
     this.agregarMaterias(materiasAInscribirse, alumno);
   }

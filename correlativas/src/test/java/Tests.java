@@ -12,8 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class Tests {
   private static final Materia MATERIA_CORRELATIVA_1 = new Materia("matematica I", Collections.emptySet());
   private static final Materia MATERIA_CORRELATIVA_2 = new Materia("matematica II", Collections.singleton(MATERIA_CORRELATIVA_1));
-  private static final String LEGAJO = "123ABC";
-  private static final String NOMBRE_ALUMNO = "Juan";
   private Set<Materia> materiasCorrelativas;
   private Set<Materia> materiasRealizadas;
 
@@ -30,7 +28,7 @@ public class Tests {
     Materia materiaRealizada2 = new Materia("matematica II", true, Collections.singleton(materiaRealizada1));
     materiasRealizadas = new HashSet<>() {{add(materiaRealizada1); add(materiaRealizada2);}};
 
-    Alumno alumno = new Alumno(LEGAJO, NOMBRE_ALUMNO, materiasRealizadas);
+    Alumno alumno = new Alumno(materiasRealizadas);
 
     Materia materiaAInscribirse1 = new Materia("matematica III", materiasCorrelativas);
     alumno.inscribirse(Set.of(materiaAInscribirse1));
@@ -45,7 +43,7 @@ public class Tests {
     Materia materiaRealizada2 = new Materia("matematica II", true, Collections.singleton(materiaRealizada1));
     materiasRealizadas = new HashSet<>() {{add(materiaRealizada1); add(materiaRealizada2);}};
 
-    Alumno alumno = new Alumno(LEGAJO, NOMBRE_ALUMNO, materiasRealizadas);
+    Alumno alumno = new Alumno(materiasRealizadas);
 
     Materia materiaAInscribirse1 = new Materia("matematica III", materiasCorrelativas);
     Materia materiaAInscribirse2 = new Materia("algoritmos");
@@ -61,7 +59,7 @@ public class Tests {
     Materia materiaRealizada2 = new Materia("matematica II", true, Collections.singleton(materiaRealizada1));
     materiasRealizadas = new HashSet<>() {{add(materiaRealizada1); add(materiaRealizada2);}};
 
-    Alumno alumno = new Alumno(LEGAJO, NOMBRE_ALUMNO, materiasRealizadas);
+    Alumno alumno = new Alumno(materiasRealizadas);
 
     assertEquals("No hay materias para inscribirse.",
       assertThrows(
@@ -76,7 +74,7 @@ public class Tests {
     Materia materiaRealizada2 = new Materia("matematica II", false, Collections.singleton(materiaRealizada1));
     materiasRealizadas = new HashSet<>() {{add(materiaRealizada1); add(materiaRealizada2);}};
 
-    Alumno alumno = new Alumno(LEGAJO, NOMBRE_ALUMNO, materiasRealizadas);
+    Alumno alumno = new Alumno(materiasRealizadas);
 
     Materia materiaAInscribirse1 = new Materia("matematica III", materiasCorrelativas);
 

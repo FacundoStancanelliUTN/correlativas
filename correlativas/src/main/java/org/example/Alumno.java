@@ -5,21 +5,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Alumno {
-  private final String legajo;
-  private final String nombre;
-  private final Set<Materia> materiasRealizadas;
-  private Set<Materia> materiasAprobadas;
+  private Set<Materia> materiasRealizadas = new HashSet<>();
   private final Set<Inscripcion> inscripcionesRealizadas = new HashSet<>();
 
-  public Alumno(String legajo, String nombre, Set<Materia> materiasRealizadas) {
-    this.legajo = legajo;
-    this.nombre = nombre;
+  public Alumno() {}
+  
+  public Alumno(Set<Materia> materiasRealizadas) {
     this.materiasRealizadas = materiasRealizadas;
-    this.setMateriasAprobadas();
-  }
-
-  private void setMateriasAprobadas() {
-    this.materiasAprobadas = materiasRealizadas.stream().filter(Materia::isAprobada).collect(Collectors.toSet());
   }
 
   public void inscribirse(Set<Materia> materiasAInscribirse) {
@@ -29,7 +21,11 @@ public class Alumno {
   }
 
   public boolean tieneMateriaAprobada(String nombreMateriaAEvaluar) {
-    return materiasAprobadas.stream().anyMatch(materiaAprobada -> materiaAprobada.equalsNombre(nombreMateriaAEvaluar));
+    return getMateriasAprobadas().stream().anyMatch(materiaAprobada -> materiaAprobada.equalsNombre(nombreMateriaAEvaluar));
+  }
+
+  private Set<Materia> getMateriasAprobadas() {
+    return materiasRealizadas.stream().filter(Materia::isAprobada).collect(Collectors.toSet());
   }
 
   public int getCantidadMateriasInscriptas() {
