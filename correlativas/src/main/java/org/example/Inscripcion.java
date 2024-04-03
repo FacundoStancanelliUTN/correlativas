@@ -11,7 +11,7 @@ public class Inscripcion {
 
   public Inscripcion(Set<Materia> materiasAInscribirse, Alumno alumno) {
     this.materias = new HashSet<>();
-    this.agregarMaterias(materiasAInscribirse, alumno);
+    this.agregarMaterias(materiasAInscribirse, alumno);  //Esto se ejecuta en el constructor, debido a que (basado en el diagrama) no deberiamos tener una inscripcion sin materias agregadas. Por lo que no se inicializa el set de materias con un set vacio.
   }
 
   /*
